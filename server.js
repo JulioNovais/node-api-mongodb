@@ -3,8 +3,8 @@ const express = require('express');
 const app = new express();
 const port = process.env.PORT || 3000;
 const mongoose = require('mongoose');
-const listaCasamentoModel = require('./api/models/lista-casamento-model');
 const bodyParser = require('body-parser');
+require('./api/models/lista-casamento-model');
 
 app.use(function (req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', '*');
@@ -20,8 +20,6 @@ app.use(bodyParser.json());
 
 var routes = require('./api/routes/lista-casamento-routes');
 routes(app);
-
-
 
 app.listen(port);
 

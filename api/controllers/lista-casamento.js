@@ -3,7 +3,13 @@
 const mongoose = require('mongoose'), ListaCasamento = mongoose.model('ListaCasamento');
 
 exports.get = function (req, res) {
-  ListaCasamento.find({}, function (err, lista) {
+
+  let params = {};
+  if (req.params.id) {
+    params = { codigoCliente: req.params.id }
+  }
+
+  ListaCasamento.find(params, function (err, lista) {
     if (err) {
       res.send(err);
     } else {
@@ -27,21 +33,24 @@ exports.create = function (req, res) {
           res.json(error);
         } else {
           res.json({
-            message: "Lista de casamento salva com sucesso.",
+            message: "success",
             data: lista
           });
         }
       }));
 
     } else {
-      res.json(produtos);
+      res.json({
+        message: "success",
+        data: lista
+      });
     }
   });
 };
 
 exports.delete = function (req, res) {
   ListaCasamento.remove({
-    codigoCliente: req.params.codigoCliente
+    codigoCliente: req.params.id
   }, function (err, listaCasamento) {
     if (err) {
       res.send(err);
