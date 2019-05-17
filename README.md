@@ -1,12 +1,10 @@
-############################################
 Node API with Express and Mongoose (MongoDB)
-############################################
 
 Considering that you already have a mongoDB running, just follow these steps:
 
-> install NodeJs (along with npm)
-> npm install
-> npm run start
+1) install NodeJs (along with npm)
+2) npm install
+3) npm run start
 
 For more:
 https://nodejs.org/en/
