@@ -12,10 +12,6 @@ app.use(function (req, res, next) {
   next();
 });
 
-app.use(function (req, res) {
-  // res.status(404).send({url: req.originalUrl + ' poxa, não encontrei nada, só lamento.'})
-})
-
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/ListaCasamento');
 
