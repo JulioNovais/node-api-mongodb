@@ -2,14 +2,9 @@
 
 const mongoose = require('mongoose'), ListaCasamento = mongoose.model('ListaCasamento');
 
-exports.get = function (req, res) {
 
-  let params = {};
-  if (req.params.id) {
-    params = { codigoCliente: req.params.id }
-  }
-
-  ListaCasamento.find(params, function (err, lista) {
+exports.findOne = function (req, res) {
+  ListaCasamento.findOne({ codigoCliente: req.params.id }, function (err, lista) {
     if (err) {
       res.send(err);
     } else {
@@ -17,6 +12,18 @@ exports.get = function (req, res) {
     }
   });
 };
+
+exports.findAll = function (req, res) {
+  ListaCasamento.find({}, function (err, lista) {
+    if (err) {
+      res.send(err);
+    } else {
+      res.json(lista);
+    }
+  });
+}
+
+
 
 exports.create = function (req, res) {
   ListaCasamento.findOneAndUpdate({ codigoCliente: req.body.codigoCliente }, req.body, { new: true }, function (err, produtos) {
