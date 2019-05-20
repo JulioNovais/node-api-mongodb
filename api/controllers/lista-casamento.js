@@ -42,7 +42,7 @@ exports.create = function (req, res) {
     } else {
       res.json({
         message: "success",
-        data: lista
+        data: produtos
       });
     }
   });
