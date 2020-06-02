@@ -1,4 +1,5 @@
 'use strict';
+// LISTA DE CASAMENTOS ROTAS
 module.exports = function(app) {
   const listaCasamento = require('../controllers/lista-casamento');
 
